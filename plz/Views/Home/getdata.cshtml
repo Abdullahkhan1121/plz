@@ -1,0 +1,39 @@
+﻿@model IEnumerable<plz.Models.Student>
+<h1 class="text-center display-4">View-Data</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">NAME</th>
+            <th scope="col">EMAIL</th>
+            <th scope="col">PASSWORD</th>
+            <th scope="col">Edit-Data</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var items in Model) 
+        {
+            
+        <tr>
+                <td>@items.Id</td>
+                <td>@items.Name</td>
+                <td>@items.Email</td>
+                <td>@items.Password</td>
+                <td>
+                <a class="btn btn-info" asp-controller="Home" asp-action="editdata" asp-route-id="@items.Id">
+                    Edit
+                </a>
+                </td>
+        </tr>
+        }
+
+    </tbody>
+</table>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
