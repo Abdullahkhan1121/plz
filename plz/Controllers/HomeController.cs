@@ -26,6 +26,11 @@ namespace plz.Controllers
         public IActionResult Adddata(string name , string email , string password , IFormFile image)
         {
             var filename = image.FileName;
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/image", filename);
+            using (FileStream stream = new FileStream(path , FileMode.Create))
+            {
+                image.CopyTo(stream);
+            }
             Student std = new Student(name , email , password , filename);
             db.students.Add(std);
             db.SaveChanges();

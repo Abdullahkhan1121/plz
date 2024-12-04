@@ -11,7 +11,7 @@ using plz.Models;
 namespace plz.Migrations
 {
     [DbContext(typeof(Connection))]
-    [Migration("20241129122509_abc")]
+    [Migration("20241202125538_abc")]
     partial class abc
     {
         /// <inheritdoc />
@@ -33,6 +33,10 @@ namespace plz.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

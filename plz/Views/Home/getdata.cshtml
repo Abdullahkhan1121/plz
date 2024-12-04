@@ -7,6 +7,7 @@
             <th scope="col">NAME</th>
             <th scope="col">EMAIL</th>
             <th scope="col">PASSWORD</th>
+            <th scope="col">Image</th>
             <th scope="col">Edit-Data</th>
            
         </tr>
@@ -20,6 +21,7 @@
                 <td>@items.Name</td>
                 <td>@items.Email</td>
                 <td>@items.Password</td>
+                <td><img src="~/image//@items.Image" height="70px" width="90px"></td>
                 <td>
                 <a class="btn btn-info" asp-controller="Home" asp-action="editdata" asp-route-id="@items.Id">
                     Edit
